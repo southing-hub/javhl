@@ -9,7 +9,7 @@ import org.springframework.cglib.proxy.MethodProxy;
 import java.lang.reflect.Method;
 
 /**
- * @Description TODO
+ * @Description cglib代理测试类
  */
 public class CGLibProxyTest{
 
