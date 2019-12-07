@@ -1,5 +1,6 @@
-package com.javhl.course.dynmicproxy;
+package com.javhl.course.aop;
 
+import com.javhl.course.dynmicproxy.ProxyTestInterface;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
