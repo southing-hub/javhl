@@ -1,7 +1,7 @@
 package com.javhl.course.dynmicproxy;
 
 /**
- * @Description TODO
+ * @Description 代理测试接口
  */
 public interface ProxyTestInterface {
 

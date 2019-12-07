@@ -8,7 +8,7 @@
     <context:component-scan base-package="com.javhl.*"></context:component-scan>
 
     <!-- 是否启用aop -->
-    <!--<aop:aspectj-autoproxy />-->
+    <aop:aspectj-autoproxy />
 
     <bean id="testBean" class="com.javhl.course.beans.BeanLifeTest" init-method="init" destroy-method="myDestory">
         <property name="name" value="test123"/>

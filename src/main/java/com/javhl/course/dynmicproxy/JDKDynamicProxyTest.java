@@ -5,9 +5,9 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 /**
- * @Description 动态代理测试类
+ * @Description JDK动态代理测试类
  */
-public class DynamicProxyTest {
+public class JDKDynamicProxyTest {
 
     public static void main(String[] args){
 
@@ -22,9 +22,12 @@ public class DynamicProxyTest {
         System.out.println(ret);
 
         //将动态代理生成的类输出到硬盘上,便于查看
-        ProxyUtils.generateClassFile(proxyTest.getClass(),"test");
+        ProxyUtils.generateClassFile(proxyTest.getClass(),"jdkProxyTest");
     }
 
+    /**
+     * 业务增强类，实现耗时时间统计的功能
+     */
     static class MyInvocationHandler implements InvocationHandler{
 
         public MyInvocationHandler(ProxyTest test){
@@ -36,9 +39,11 @@ public class DynamicProxyTest {
 
         public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 
-            System.out.println(method.getName());
+            long curTime = System.nanoTime();
 
             Object obj = method.invoke(proxyTest,args);
+
+            System.out.println(String.format("耗时:%s 纳秒",System.nanoTime()-curTime));
 
             return obj;
         }

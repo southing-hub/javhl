@@ -1,7 +1,6 @@
 package com.javhl.course.dynmicproxy;
 
 import org.springframework.cglib.core.DebuggingClassWriter;
-import org.springframework.cglib.proxy.Callback;
 import org.springframework.cglib.proxy.Enhancer;
 import org.springframework.cglib.proxy.MethodInterceptor;
 import org.springframework.cglib.proxy.MethodProxy;
@@ -12,7 +11,6 @@ import java.lang.reflect.Method;
  * @Description cglib代理测试类
  */
 public class CGLibProxyTest{
-
 
     public static void main(String[] args){
 
@@ -31,14 +29,19 @@ public class CGLibProxyTest{
 
     }
 
+    /**
+     * 业务增强类，实现耗时时间统计的功能
+     */
     static class MyMethodInterceptor implements MethodInterceptor{
 
         public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
 
-            System.out.println(o.getClass());
+            long curTime = System.nanoTime();
 
             //调用父类的方法
             Object ret = methodProxy.invokeSuper(o,objects);
+
+            System.out.println(String.format("耗时:%s 纳秒",System.nanoTime()-curTime));
 
             return ret;
         }
