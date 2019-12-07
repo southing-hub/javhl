@@ -1,5 +1,6 @@
 package com.javhl.course.dynmicproxy;
 
+import com.javhl.course.aop.MethodCallTimeAspect;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -31,7 +32,7 @@ public class StaticProxyTest implements ProxyTestInterface {
 
         System.out.println(names);
 
-        AOPTest aopTest = (AOPTest) applicationContext.getBean("AOPTest");
+        MethodCallTimeAspect aopTest = (MethodCallTimeAspect) applicationContext.getBean("AOPTest");
 
         ProxyTest proxyTest = new ProxyTest();
         StaticProxyTest staticProxyTest = new StaticProxyTest(proxyTest);
