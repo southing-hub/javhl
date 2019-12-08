@@ -1,4 +1,4 @@
-package com.javhl.course.dynmicproxy;
+package com.javhl.course.dynamicproxy;
 
 import org.springframework.cglib.core.DebuggingClassWriter;
 import org.springframework.cglib.proxy.Enhancer;

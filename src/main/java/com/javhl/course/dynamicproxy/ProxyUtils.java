@@ -1,4 +1,4 @@
-package com.javhl.course.dynmicproxy;
+package com.javhl.course.dynamicproxy;
 
 
 import java.io.FileOutputStream;

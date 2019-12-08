@@ -1,4 +1,4 @@
-package com.javhl.course.dynmicproxy;
+package com.javhl.course.dynamicproxy;
 
 import com.javhl.course.aop.anno.ParamPrintAnno;
 import org.springframework.stereotype.Component;

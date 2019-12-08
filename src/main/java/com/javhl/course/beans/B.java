@@ -1,4 +1,6 @@
-package com.javhl.course;
+package com.javhl.course.beans;
+
+import com.javhl.course.beans.A;
 
 /**
  * @Description TODO

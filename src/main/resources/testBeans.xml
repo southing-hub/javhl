@@ -10,9 +10,9 @@
     <!-- 是否启用aop -->
     <aop:aspectj-autoproxy />
 
-    <bean id="testBean" class="com.javhl.course.beans.BeanLifeTest" init-method="init" destroy-method="myDestory">
-        <property name="name" value="test123"/>
-    </bean>
-    <bean class="com.javhl.course.beans.MyBeanPostProcessor"/>
+    <!--<bean id="testBean" class="com.javhl.course.beans.BeanLifeTest" init-method="init" destroy-method="myDestory">-->
+        <!--<property name="name" value="test123"/>-->
+    <!--</bean>-->
+    <!--<bean class="com.javhl.course.beans.MyBeanPostProcessor"/>-->
 
 </beans>

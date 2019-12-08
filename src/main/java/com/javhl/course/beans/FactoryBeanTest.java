@@ -1,15 +1,12 @@
 package com.javhl.course.beans;
 
-import com.javhl.course.A;
-import com.javhl.course.B;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 
-@Component
+//@Component
 public class FactoryBeanTest implements FactoryBean {
 
     private String type = "a";

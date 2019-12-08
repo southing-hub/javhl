@@ -1,6 +1,6 @@
 package com.javhl.course.aop;
 
-import com.javhl.course.dynmicproxy.ProxyTestInterface;
+import com.javhl.course.dynamicproxy.ProxyTestInterface;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -14,9 +14,9 @@ import java.util.Arrays;
 /**
  * @Description AOP测试类，统计接口运行时长
  */
-@Component
+//@Component
 @Aspect
-public class AOPTest {
+public class MethodCallTimeAspect {
 
     @Pointcut("execution(* com.javhl..*.*(..))")
     private void myPointCut(){
@@ -27,14 +27,22 @@ public class AOPTest {
     public Object advice (ProceedingJoinPoint joinPoint) throws Throwable{
 
         //方法调用开始时间
-        long startTime = System.currentTimeMillis();
+        long startTime = System.nanoTime();
         Object result = null;
         try {
+
             result = joinPoint.proceed();
+
         }finally {
 
-            long timeUsed = System.currentTimeMillis() - startTime;
-            System.out.println(String.format("方法耗时:%d",timeUsed));
+            long timeUsed = System.nanoTime() - startTime;
+
+            StringBuilder sb = new StringBuilder();
+            sb.append("class name = [ ").append(joinPoint.getTarget().getClass().getName()).append(" ] ");
+            sb.append("methd name = [ ").append(joinPoint.getSignature().getName()).append(" ]")
+                    .append(" 耗时: ").append(timeUsed).append(" 纳秒");
+
+            System.out.println(sb.toString());
         }
         return result;
     }
@@ -50,8 +58,6 @@ public class AOPTest {
         ProxyTestInterface proxyTest = (ProxyTestInterface) applicationContext.getBean("proxyTest");
 
         Integer ret = proxyTest.add(1,2);
-
-        System.out.println(ret);
 
         ((ClassPathXmlApplicationContext) applicationContext).close();
     }

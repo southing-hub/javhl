@@ -7,7 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.Arrays;
 
-@Configuration
+//@Configuration
 public class JavaConfigBeanTest {
 
     @Bean

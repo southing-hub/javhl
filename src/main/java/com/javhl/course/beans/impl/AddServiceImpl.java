@@ -1,4 +1,14 @@
-package com.javhl.course.beans;
+package com.javhl.course.beans.impl;
 
-public class CalcBean {
+
+import com.javhl.course.beans.service.CalcService;
+import org.springframework.stereotype.Component;
+
+@Component
+public class AddServiceImpl implements CalcService {
+    @Override
+    public Integer calc(Integer a, Integer b) {
+
+        return a+b;
+    }
 }
