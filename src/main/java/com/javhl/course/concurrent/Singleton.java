@@ -5,7 +5,7 @@ package com.javhl.course.concurrent;
  */
 public class Singleton {
 
-    //此处必须用volatile修饰，否则可能会有问题
+    //此处必须用volatile修饰，否则可能会有并发问题
     private volatile static Singleton singleton;
 
     private Singleton(){}
